@@ -90,11 +90,12 @@ class Library:
             :param new_status: новый статус (в наличии\ выдана)
             :return: Строка с информацией об обновлении книги.
         """
-        access_status = [
+        allowed_status = [
             "в наличии",
             "выдана",
         ]
-        if new_status not in access_status:
+        new_status = new_status.lower()
+        if new_status not in allowed_status:
             return "Недопустимый статус"
         for book in self.books:
             if book.id == book_id:
